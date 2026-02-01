@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For Maanyaa ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      text-align: center;
+      position: relative;
+      width: 90%;
+      max-width: 350px;
+      height: 280px;
+    }
+
+    h1 {
+      color: #ff3366;
+      font-size: 22px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    button {
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      position: absolute;
+      transition: all 0.25s ease;
+      font-size: 16px;
+      padding: 12px 24px;
+    }
+
+    #yes {
+      background: #ff3366;
+      color: white;
+      left: 60px;
+      bottom: 30px;
+    }
+
+    #no {
+      background: #ddd;
+      color: black;
+      right: 60px;
+      bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container" id="box">
+    <h1>Maanyaa Kapur 💖</h1>
+    <p>Will you be my Valentine? 🥺👉👈</p>
+    <button id="yes">Yes 😍</button>
+    <button id="no">No 🙄</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const box = document.getElementById("box");
+
+    let yesSize = 16;
+
+    noBtn.addEventListener("mouseover", moveNo);
+    noBtn.addEventListener("touchstart", moveNo);
+
+    function moveNo() {
+      const boxRect = box.getBoundingClientRect();
+      const maxX = boxRect.width - noBtn.offsetWidth;
+      const maxY = boxRect.height - noBtn.offsetHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+
+      yesSize += 4;
+      yesBtn.style.fontSize = yesSize + "px";
+      yesBtn.style.padding = `${yesSize / 2}px ${yesSize}px`;
+    }
+
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          text-align:center;
+          font-family:Arial;
+          background:linear-gradient(135deg,#ff3366,#ff9a9e);
+          color:white;
+          padding:20px;">
+          <h1>
+            YAYYY!!! 🎉😍<br><br>
+            Maanyaa Kapur 💕<br>
+            You’re officially my Valentine ❤️<br><br>
+            Best decision ever 😌
+          </h1>
+        </div>
+      `;
+    });
+  </script>
+
+</body>
+</html>
